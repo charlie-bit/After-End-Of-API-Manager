@@ -1,0 +1,535 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Swagger Example API",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "127.0.0.1:8000",
+    "basePath": "/",
+    "paths": {
+        "/api/manager/Delete": {
+            "get": {
+                "description": "ApiManagerSystem The front end send the \tRequest that select the message corresponding databases to After end",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "select the message corresponding databases",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "指定id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "当前数据库表",
+                        "name": "table",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/manager/login": {
+            "post": {
+                "description": "Manager Login to use ApiManagerSystem",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "ApiManagerSystem Login",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.JSONParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/manager/register": {
+            "post": {
+                "description": "Manager Register to Login ApiManagerSystem",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "ApiManagerSystem Register",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.JSONParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/manager/selectManagerInfo": {
+            "get": {
+                "description": "ApiManagerSystem The front end send the \tRequest that select the message corresponding databases to After end",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "select the message corresponding databases",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "当前页",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "当前数据库表",
+                        "name": "table",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/RecorverPassword": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "Recover default password corresponding button",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/UpdateApiLimit": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "Update Api use rights",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "角色",
+                        "name": "role",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "API描述",
+                        "name": "description",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/UpdateUsers": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ApiManagerSystem"
+                ],
+                "summary": "Add Api use rights",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.AddApiURLLimitStruct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/getToken": {
+            "post": {
+                "description": "If the EffectTime out the ExpirationTime, Please Get the new Token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get New Token",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.JSONParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/login": {
+            "post": {
+                "security": [
+                    {
+                        "BearerTokenAuth": []
+                    }
+                ],
+                "description": "Login user to user api",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "LoginUser",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.JSONParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/new": {
+            "post": {
+                "description": "New user to Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "NewUser",
+                "parameters": [
+                    {
+                        "description": "JSON DATA FORMAT ",
+                        "name": "param",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.JSONParam"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.ResponseStruct"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controllers.AddApiURLLimitStruct": {
+            "type": "object",
+            "properties": {
+                "api_description": {
+                    "type": "string"
+                },
+                "api_url": {
+                    "type": "string"
+                },
+                "use_role": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.JSONParam": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "controllers.ResponseStruct": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "状态码",
+                    "type": "integer"
+                },
+                "message": {
+                    "description": "反馈信息",
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "user": {
+                    "type": "object",
+                    "$ref": "#/definitions/models.User"
+                }
+            }
+        },
+        "controllers.UpdateUserParams": {
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer"
+                },
+                "expiration_time": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "use_role": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.User": {
+            "type": "object",
+            "properties": {
+                "effectiveTime": {
+                    "description": "token有效时间",
+                    "type": "string"
+                },
+                "expirationTime": {
+                    "description": "token失效时间",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "主键",
+                    "type": "integer"
+                },
+                "ip": {
+                    "description": "ip地址",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "密码",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "用户角色",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "token标识符",
+                    "type": "string"
+                },
+                "useState": {
+                    "description": "使用状态",
+                    "type": "integer"
+                },
+                "userName": {
+                    "description": "用户名",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerTokenAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

@@ -1,0 +1,355 @@
+basePath: /
+definitions:
+  controllers.AddApiURLLimitStruct:
+    properties:
+      api_description:
+        type: string
+      api_url:
+        type: string
+      use_role:
+        type: string
+    type: object
+  controllers.JSONParam:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  controllers.ResponseStruct:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      message:
+        additionalProperties: true
+        description: 反馈信息
+        type: object
+      user:
+        $ref: '#/definitions/models.User'
+        type: object
+    type: object
+  controllers.UpdateUserParams:
+    properties:
+      Id:
+        type: integer
+      expiration_time:
+        type: string
+      password:
+        type: string
+      use_role:
+        type: string
+      username:
+        type: string
+    type: object
+  models.User:
+    properties:
+      effectiveTime:
+        description: token有效时间
+        type: string
+      expirationTime:
+        description: token失效时间
+        type: string
+      id:
+        description: 主键
+        type: integer
+      ip:
+        description: ip地址
+        type: string
+      password:
+        description: 密码
+        type: string
+      role:
+        description: 用户角色
+        type: string
+      token:
+        description: token标识符
+        type: string
+      useState:
+        description: 使用状态
+        type: integer
+      userName:
+        description: 用户名
+        type: string
+    type: object
+host: 127.0.0.1:8000
+info:
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /api/manager/Delete:
+    get:
+      consumes:
+      - application/json
+      description: "ApiManagerSystem The front end send the \tRequest that select
+        the message corresponding databases to After end"
+      parameters:
+      - description: 指定id
+        in: query
+        name: id
+        required: true
+        type: integer
+      - description: 当前数据库表
+        in: query
+        name: table
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: select the message corresponding databases
+      tags:
+      - ApiManagerSystem
+  /api/manager/login:
+    post:
+      consumes:
+      - application/json
+      description: Manager Login to use ApiManagerSystem
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.JSONParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: ApiManagerSystem Login
+      tags:
+      - ApiManagerSystem
+  /api/manager/register:
+    post:
+      consumes:
+      - application/json
+      description: Manager Register to Login ApiManagerSystem
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.JSONParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: ApiManagerSystem Register
+      tags:
+      - ApiManagerSystem
+  /api/manager/selectManagerInfo:
+    get:
+      consumes:
+      - application/json
+      description: "ApiManagerSystem The front end send the \tRequest that select
+        the message corresponding databases to After end"
+      parameters:
+      - description: 当前页
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 当前数据库表
+        in: query
+        name: table
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: select the message corresponding databases
+      tags:
+      - ApiManagerSystem
+  /api/user/RecorverPassword:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: Recover default password corresponding button
+      tags:
+      - ApiManagerSystem
+  /api/user/UpdateApiLimit:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 角色
+        in: query
+        name: role
+        required: true
+        type: string
+      - description: API描述
+        in: query
+        name: description
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: Update Api use rights
+      tags:
+      - ApiManagerSystem
+  /api/user/UpdateUsers:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.AddApiURLLimitStruct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: Add Api use rights
+      tags:
+      - ApiManagerSystem
+  /api/user/getToken:
+    post:
+      consumes:
+      - application/json
+      description: If the EffectTime out the ExpirationTime, Please Get the new Token
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.JSONParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: Get New Token
+      tags:
+      - User
+  /api/user/login:
+    post:
+      consumes:
+      - application/json
+      description: Login user to user api
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.JSONParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      security:
+      - BearerTokenAuth: []
+      summary: LoginUser
+      tags:
+      - User
+  /api/user/new:
+    post:
+      consumes:
+      - application/json
+      description: New user to Login
+      parameters:
+      - description: 'JSON DATA FORMAT '
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.JSONParam'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/controllers.ResponseStruct'
+      summary: NewUser
+      tags:
+      - User
+securityDefinitions:
+  BearerTokenAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
