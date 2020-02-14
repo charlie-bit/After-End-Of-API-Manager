@@ -22,7 +22,7 @@ func Init()  {
 		读取配置文件内容
 		用户名 密码 tcp地址 数据库类型 数据库编码
 	 */
-	conn,err := gorm.Open("mysql","erp:0w3bB98qRbI4@tcp(erpdb.licheng-tech.com:3305)/ApiProject?charset=utf8&parseTime=true&loc=Local")
+	conn,err := gorm.Open("mysql",...)/ApiProject?charset=utf8&parseTime=true&loc=Local")//涉及到内部信息 格式可参照gorm官方文档
 	if err != nil {
 		fmt.Println("数据库连接失败")
 	}
