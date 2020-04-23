@@ -1,10 +1,10 @@
 package main
 
 import (
-	"apiproject_new/app"
-	"apiproject_new/controllers"
-	_ "apiproject_new/docs"
-	"apiproject_new/models"
+	"After-End-Of-API-Manager/apiproject_new/app"
+	"After-End-Of-API-Manager/apiproject_new/controllers"
+	_ "After-End-Of-API-Manager/apiproject_new/docs"
+	"After-End-Of-API-Manager/apiproject_new/models"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
